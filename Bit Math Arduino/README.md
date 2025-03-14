@@ -1,1 +1,1 @@
-
+Projeto no ambito da cadeira de Tecnologia da Informática onde desenvolvemos o jogo Bit Mat onde o jogo tinha como finalidade promover o conhecimento de operadores binários e da conversão entre sistemas de numeração, sendo inspirado em iniciativas idênticas da Cisco. 
