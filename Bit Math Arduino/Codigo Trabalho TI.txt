@@ -1,0 +1,82 @@
+int buttonstate = HIGH;
+int lastbuttonstate = HIGH;
+long lastdebouncetime = 0;
+long debouncedelay = 50;
+int buttonState; 
+long randNumber;
+int number_1;
+int number_2;
+int operators;
+int calculo;
+int result;
+byte const BLUE=4, RED=5, GREEN=3;
+void setup()
+{
+  Serial.begin(9600);
+  for(int pin=3;pin<=13;pin++)
+  	pinMode(pin, OUTPUT);
+  pinMode(2, INPUT_PULLUP);
+  randomSeed(analogRead(0));
+  Serial.println("Press Button to Start!");
+}
+
+void loop()
+{
+ if (Debounce(2) == LOW) {
+    result=0;
+    number_1= random(0,16);
+    number_2= random(0,16);
+    operators= random(4);
+    preparador(number_1, 6);
+    preparador(number_2, 10);
+  }
+ 
+  // Led RGB
+  if (operators == 1){
+    calculo = number_1 & number_2;
+      digitalWrite(RED,HIGH);}
+  if (operators ==2){
+    calculo = number_1 | number_2;
+      digitalWrite(BLUE, HIGH);}
+  if (operators ==3){
+    calculo = number_1 ^ number_2;
+      digitalWrite(GREEN, HIGH);}
+  {
+  if (Debounce(2) == LOW){
+    result++;
+    Serial.print("Count press button: ");
+    Serial.println(result);
+  }
+  }
+}
+void preparador(byte number, byte LEDoffset) {
+  for (int digit=0;digit<8;digit++)
+  digitalWrite(LEDoffset+digit,(number>>digit)&1);
+  return;
+}
+  //Debounce
+bool Debounce(int button){
+
+     int reading = digitalRead(button);
+
+      if (reading != lastbuttonstate) {
+
+        lastdebouncetime = millis();
+      }
+
+      if ((millis() - lastdebouncetime) > debouncedelay) {
+
+        if (reading != buttonstate) {
+          buttonstate = reading;
+
+          if (buttonstate == HIGH) {
+
+            lastbuttonstate = reading; 
+            return(LOW);
+          }
+        }
+      }
+
+      lastbuttonstate = reading;
+      return(HIGH);
+}
