@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "e81e510d-1b03-4470-ab59-e8210b91fdd7",
+		"name": "Projeto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34240960",
+		"_collection_link": "https://bd6666.postman.co/workspace/BD-Workspace~2fa9df02-2f9a-4cc1-aa05-d08d8e799ffe/collection/34240960-e81e510d-1b03-4470-ab59-e8210b91fdd7?action=share&source=collection_link&creator=34240960"
+	},
+	"item": [
+		{
+			"name": "Add patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": 3,\r\n    \"username\": \"docuser\",\r\n    \"password\": \"password123\",\r\n    \"email\": \"docuser@example.com\",\r\n    \"conactinfo\": \"1234567890\",\r\n    \"salary\": 70000,\r\n    \"medlicense\": \"ABC123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Projeto/register/nurse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"register",
+						"nurse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add doctor",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add assistant",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add nurse",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"patientuser\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Projeto/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNCwiZXhwIjoxNzE2NDExOTA2fQ.Xii58yi7tq3-mMMCMNA3ue-_itawiou-Frj7lZz9DOE"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"envent_id\":2,\r\n    \"assistant_employee_users_user_id\": 32,\r\n    \"bill_billid\":3,\r\n    \"date\": \"2024-06-01\",\r\n    \"doctor_id\": 23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Projeto/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "See Appoitments",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Schedule Surgery",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prescripton",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add Prescripton",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/Projeto/prescriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"prescriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 100,\r\n    \"payment_method\": \"credit_card\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Projeto/bills/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"bills",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/Projeto/top3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Projeto",
+						"top3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Daily Summary",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Monthly Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
